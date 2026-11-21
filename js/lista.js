@@ -4,34 +4,18 @@ const carregando = document.getElementById("carregando");
 const erro = document.getElementById("erro");
 const vazio = document.getElementById("vazio");
 
+const formBusca = document.getElementById("form-busca");
+const campoBusca = document.getElementById("campo-busca");
+
+let pontos = [];
+
 async function carregarPontos() {
     try {
-        const pontos = await listarPontos();
+        pontos = await listarPontos();
 
         carregando.classList.add("escondido");
 
-        if (pontos.length === 0) {
-            vazio.classList.remove("escondido");
-            return;
-        }
-
-        tabela.classList.remove("escondido");
-
-        pontos.forEach(ponto => {
-            const linha = document.createElement("tr");
-
-            linha.innerHTML = `
-                <td>${ponto.name}</td>
-                <td>${ponto.description || "-"}</td>
-                <td>${ponto.latitude}</td>
-                <td>${ponto.longitude}</td>
-                <td>
-                    <a href="ponto.html?id=${ponto.id}">Ver</a>
-                </td>
-            `;
-
-            corpoTabela.appendChild(linha);
-        });
+        mostrarPontos(pontos);
 
     } catch (error) {
         carregando.classList.add("escondido");
@@ -39,5 +23,47 @@ async function carregarPontos() {
         erro.classList.remove("escondido");
     }
 }
+
+function mostrarPontos(lista) {
+    corpoTabela.innerHTML = "";
+
+    tabela.classList.add("escondido");
+    vazio.classList.add("escondido");
+
+    if (lista.length === 0) {
+        vazio.classList.remove("escondido");
+        return;
+    }
+
+    tabela.classList.remove("escondido");
+
+    lista.forEach(ponto => {
+        const linha = document.createElement("tr");
+
+        linha.innerHTML = `
+            <td>${ponto.name}</td>
+            <td>${ponto.description || "-"}</td>
+            <td>${ponto.latitude}</td>
+            <td>${ponto.longitude}</td>
+            <td>
+                <a href="ponto.html?id=${ponto.id}">Ver</a>
+            </td>
+        `;
+
+        corpoTabela.appendChild(linha);
+    });
+}
+
+formBusca.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const nomeBusca = campoBusca.value.toLowerCase();
+
+    const pontosFiltrados = pontos.filter(ponto =>
+        ponto.name.toLowerCase().includes(nomeBusca)
+    );
+
+    mostrarPontos(pontosFiltrados);
+});
 
 carregarPontos();
