@@ -19,12 +19,14 @@
 
     <main>
         <section>
-            <h2>Pontos geográficos</h2>
+            <div class="titulo-listagem">
+                <h2>Pontos geográficos</h2>
 
-            <a href="formulario.html">+ Novo ponto</a>
+                <a href="formulario.html" class="botao">+ Novo ponto</a>
+            </div>
 
             <form id="form-busca">
-                <label for="campo-busca">Buscar ponto pelo nome: </label>
+                <label for="campo-busca">Buscar ponto pelo nome:</label>
                 <input type="text" id="campo-busca" placeholder="Digite o nome do ponto">
 
                 <button type="submit">Buscar</button>
@@ -32,21 +34,23 @@
 
             <p id="carregando">Carregando pontos...</p>
             <p id="erro" class="escondido"></p>
-            <p id="vazio" class="escondido"> Nenhum ponto encontrado.</p>
+            <p id="vazio" class="escondido">Nenhum ponto encontrado.</p>
 
-            <table id="tabela" class="escondido">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Latitude</th>
-                        <th>Longitude</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
+            <div class="tabela-container">
+                <table id="tabela" class="escondido">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
 
-                <tbody id="corpo-tabela"></tbody>
-            </table>
+                    <tbody id="corpo-tabela"></tbody>
+                </table>
+            </div>
         </section>
     </main>
 
