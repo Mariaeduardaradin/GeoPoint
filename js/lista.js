@@ -47,6 +47,8 @@ function mostrarPontos(lista) {
             <td>${ponto.longitude}</td>
             <td>
                 <a href="ponto.html?id=${ponto.id}">Ver</a>
+                <a href="formulario.html?id=${ponto.id}">Editar</a>
+                <button class="botao-excluir" data-id="${ponto.id}">Excluir</button>
             </td>
         `;
 
@@ -64,6 +66,28 @@ formBusca.addEventListener("submit", function(event) {
     );
 
     mostrarPontos(pontosFiltrados);
+});
+
+corpoTabela.addEventListener("click", async function(event) {
+    if (event.target.classList.contains("botao-excluir")) {
+        const id = event.target.dataset.id;
+
+        const confirmacao = confirm("Tem certeza que deseja excluir este ponto?");
+
+        if (confirmacao) {
+            try {
+                await excluirPonto(id);
+
+                pontos = await listarPontos();
+
+                mostrarPontos(pontos);
+
+            } catch (error) {
+                erro.textContent = error.message;
+                erro.classList.remove("escondido");
+            }
+        }
+    }
 });
 
 carregarPontos();
