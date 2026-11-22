@@ -1,24 +1,65 @@
 const formPonto = document.getElementById("form-ponto");
+const nome = document.getElementById("nome");
+const descricao = document.getElementById("descricao");
+const latitude = document.getElementById("latitude");
+const longitude = document.getElementById("longitude");
 const mensagem = document.getElementById("mensagem");
+const tituloFormulario = document.getElementById("titulo-formulario");
+const botaoSalvar = document.getElementById("botao-salvar");
 
-formPonto.addEventListener("submit", async function(event) {
-    event.preventDefault();
+const id = new URLSearchParams(window.location.search).get("id");
 
-    const ponto = {
-        name: document.getElementById("nome").value,
-        description: document.getElementById("descricao").value,
-        latitude: Number(document.getElementById("latitude").value),
-        longitude: Number(document.getElementById("longitude").value)
-    };
+if (id) {
+    tituloFormulario.textContent = "Editar ponto";
+    botaoSalvar.textContent = "Salvar alterações";
 
+    carregarPonto();
+}
+
+async function carregarPonto() {
     try {
-        await criarPonto(ponto);
+        const ponto = await buscarPonto(id);
 
-        mensagem.textContent = "Ponto cadastrado com sucesso!";
-
-        formPonto.reset();
+        nome.value = ponto.name;
+        descricao.value = ponto.description || "";
+        latitude.value = ponto.latitude;
+        longitude.value = ponto.longitude;
 
     } catch (error) {
         mensagem.textContent = error.message;
+        mensagem.classList.remove("escondido");
+    }
+}
+
+formPonto.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const ponto = {
+        name: nome.value.trim(),
+        description: descricao.value.trim(),
+        latitude: Number(latitude.value),
+        longitude: Number(longitude.value)
+    };
+
+    botaoSalvar.disabled = true;
+    mensagem.classList.add("escondido");
+
+    try {
+        if (id) {
+            await atualizarPonto(id, ponto);
+
+            window.location.href = "ponto.html?id=" + id;
+
+        } else {
+            await criarPonto(ponto);
+
+            window.location.href = "index.html";
+        }
+
+    } catch (error) {
+        mensagem.textContent = error.message;
+        mensagem.classList.remove("escondido");
+
+        botaoSalvar.disabled = false;
     }
 });

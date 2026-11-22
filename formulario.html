@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeoPoint - Cadastrar ponto</title>
+    <title>GeoPoint - Cadastro de ponto</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <header>
@@ -19,21 +20,69 @@
 
     <main>
         <section>
-            <h2>Cadastrar ponto geográfico</h2>
+
+            <div class="titulo-listagem">
+                <h2 id="titulo-formulario">Cadastrar ponto</h2>
+
+                <a href="index.html" class="botao">Voltar</a>
+            </div>
 
             <form id="form-ponto">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" maxlength="100" required>
-                <label for="descricao">Descrição:</label>
-                <textarea id="descricao" maxlength="255"></textarea>
-                <label for="latitude">Latitude:</label>
-                <input type="number" id="latitude" min="-90" max="90" step="any" required>
-                <label for="longitude">Longitude:</label>
-                <input type="number" id="longitude" min="-180" max="180" step="any" required>
-                <button type="submit">Salvar ponto</button>
-                <a href="index.html">Cancelar</a>
+
+                <div>
+                    <label for="nome">Nome do ponto:</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        maxlength="100"
+                        placeholder="Digite o nome do ponto"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="descricao">Descrição:</label>
+                    <textarea
+                        id="descricao"
+                        maxlength="255"
+                        placeholder="Descreva o ponto geográfico"
+                    ></textarea>
+                </div>
+
+                <div>
+                    <label for="latitude">Latitude:</label>
+                    <input
+                        type="number"
+                        id="latitude"
+                        min="-90"
+                        max="90"
+                        step="any"
+                        placeholder="Ex.: -28.263"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="longitude">Longitude:</label>
+                    <input
+                        type="number"
+                        id="longitude"
+                        min="-180"
+                        max="180"
+                        step="any"
+                        placeholder="Ex.: -52.408"
+                        required
+                    >
+                </div>
+
+                <p id="mensagem" class="escondido"></p>
+
+                <button type="submit" id="botao-salvar">
+                    Cadastrar ponto
+                </button>
+
             </form>
-            <p id="mensagem"></p>
+
         </section>
     </main>
 
