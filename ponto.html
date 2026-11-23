@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
     <header>
         <h1>GeoPoint</h1>
-
         <nav>
             <a href="index.html">Pontos</a>
             <a href="formulario.html">Cadastrar ponto</a>
@@ -19,30 +17,46 @@
 
     <main>
         <section>
-            <h2>Detalhes do ponto</h2>
+            <div class="cabecalho-detalhes">
+                <h2>Detalhes do ponto</h2>
+                <a href="index.html" class="botao botao-voltar">Voltar</a>
+            </div>
 
             <p id="carregando">Carregando informações...</p>
-
             <p id="erro" class="escondido"></p>
 
             <div id="detalhes" class="escondido">
-                <p><strong>Nome:</strong> <span id="nome"></span></p>
+                <div class="informacoes-ponto">
+                    <div class="info-item">
+                        <strong>Nome</strong>
+                        <p id="nome"></p>
+                    </div>
 
-                <p><strong>Descrição:</strong> <span id="descricao"></span></p>
+                    <div class="info-item">
+                        <strong>Descrição</strong>
+                        <p id="descricao"></p>
+                    </div>
 
-                <p><strong>Latitude:</strong> <span id="latitude"></span></p>
+                    <div class="info-item">
+                        <strong>Latitude</strong>
+                        <p id="latitude"></p>
+                    </div>
 
-                <p><strong>Longitude:</strong> <span id="longitude"></span></p>
+                    <div class="info-item">
+                        <strong>Longitude</strong>
+                        <p id="longitude"></p>
+                    </div>
+                </div>
 
-                <a id="editar" href="#">Editar</a>
-
-                <a href="index.html">Voltar</a>
+                <div class="acoes-detalhes">
+                    <a id="editar" href="#" class="botao">Editar ponto</a>
+                    <button id="excluir" class="botao-acao botao-excluir">Excluir ponto</button>
+                </div>
             </div>
         </section>
     </main>
 
     <script src="js/api.js"></script>
     <script src="js/detalhe.js"></script>
-
 </body>
 </html>

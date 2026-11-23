@@ -31,18 +31,75 @@ async function carregarPonto() {
     }
 }
 
-formPonto.addEventListener("submit", async function (event) {
+formPonto.addEventListener("submit", async function(event) {
     event.preventDefault();
 
+    mensagem.classList.add("escondido");
+
+    const nomePonto = nome.value.trim();
+    const descricaoPonto = descricao.value.trim();
+
+    const valorLatitude = latitude.value;
+    const valorLongitude = longitude.value;
+
+    const latitudePonto = Number(valorLatitude);
+    const longitudePonto = Number(valorLongitude);
+
+    // Validar nome
+    if (nomePonto === "") {
+        mensagem.textContent = "O nome do ponto é obrigatório.";
+        mensagem.classList.remove("escondido");
+        return;
+    }
+
+    if (nomePonto.length > 100) {
+        mensagem.textContent = "O nome deve ter no máximo 100 caracteres.";
+        mensagem.classList.remove("escondido");
+        return;
+    }
+
+    // Validar descrição
+    if (descricaoPonto.length > 255) {
+        mensagem.textContent = "A descrição deve ter no máximo 255 caracteres.";
+        mensagem.classList.remove("escondido");
+        return;
+    }
+
+    // Validar latitude
+    if (valorLatitude === "" || !Number.isFinite(latitudePonto)) {
+        mensagem.textContent = "Informe uma latitude válida.";
+        mensagem.classList.remove("escondido");
+        return;
+    }
+
+    if (latitudePonto < -90 || latitudePonto > 90) {
+        mensagem.textContent = "A latitude deve estar entre -90 e 90.";
+        mensagem.classList.remove("escondido");
+        return;
+    }
+
+    // Validar longitude
+    if (valorLongitude === "" || !Number.isFinite(longitudePonto)) {
+        mensagem.textContent = "Informe uma longitude válida.";
+        mensagem.classList.remove("escondido");
+        return;
+    }
+
+    if (longitudePonto < -180 || longitudePonto > 180) {
+        mensagem.textContent = "A longitude deve estar entre -180 e 180.";
+        mensagem.classList.remove("escondido");
+        return;
+    }
+
     const ponto = {
-        name: nome.value.trim(),
-        description: descricao.value.trim(),
-        latitude: Number(latitude.value),
-        longitude: Number(longitude.value)
+        name: nomePonto,
+        description: descricaoPonto,
+        latitude: latitudePonto,
+        longitude: longitudePonto
     };
 
     botaoSalvar.disabled = true;
-    mensagem.classList.add("escondido");
+    botaoSalvar.textContent = "Salvando...";
 
     try {
         if (id) {
@@ -61,5 +118,11 @@ formPonto.addEventListener("submit", async function (event) {
         mensagem.classList.remove("escondido");
 
         botaoSalvar.disabled = false;
+
+        if (id) {
+            botaoSalvar.textContent = "Salvar alterações";
+        } else {
+            botaoSalvar.textContent = "Salvar";
+        }
     }
 });

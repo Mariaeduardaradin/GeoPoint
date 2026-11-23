@@ -78,6 +78,55 @@ button:hover,
     background-color: #333333;
 }
 
+/* Botões de ação da tabela */
+
+.acoes {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.botao-acao {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-size: 13px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    margin: 0;
+}
+
+.botao-ver {
+    background-color: #ffffff;
+    color: #111111;
+    border-color: #cccccc;
+}
+
+.botao-ver:hover {
+    background-color: #eeeeee;
+}
+
+.botao-editar {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.botao-editar:hover {
+    background-color: #333333;
+}
+
+.botao-excluir {
+    background-color: #a00000;
+    color: #ffffff;
+}
+
+.botao-excluir:hover {
+    background-color: #780000;
+}
+
 /* Campos */
 
 input,
@@ -203,14 +252,61 @@ td a {
     margin-right: 10px;
 }
 
-/* Detalhes */
+/* Tela de detalhes */
 
-#detalhes p {
-    margin: 20px 0;
+.cabecalho-detalhes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
-#detalhes a {
-    margin-right: 15px;
+.cabecalho-detalhes h2 {
+    margin: 0;
+}
+
+.botao-voltar {
+    background-color: #ffffff;
+    color: #111111;
+    border: 1px solid #cccccc;
+}
+
+.botao-voltar:hover {
+    background-color: #eeeeee;
+}
+
+.informacoes-ponto {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-item {
+    padding: 18px;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.info-item strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.info-item p {
+    margin: 0;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.acoes-detalhes {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
 }
 
 /* Mensagens */
@@ -274,8 +370,84 @@ td a {
         align-self: stretch;
     }
 
+    /* Tabela adaptada para celular */
+
+    .tabela-container {
+        overflow-x: hidden;
+    }
+
     .tabela-container table {
-        min-width: 600px;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .tabela-container thead {
+        display: none;
+    }
+
+    .tabela-container tbody tr {
+        display: block;
+        border: 1px solid #cccccc;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+
+    .tabela-container tbody td {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px 5px;
+        text-align: right;
+        overflow-wrap: anywhere;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .tabela-container tbody td::before {
+        font-weight: bold;
+        text-align: left;
+        flex-shrink: 0;
+    }
+
+    .tabela-container tbody td:nth-child(1)::before {
+        content: "Nome:";
+    }
+
+    .tabela-container tbody td:nth-child(2)::before {
+        content: "Descrição:";
+    }
+
+    .tabela-container tbody td:nth-child(3)::before {
+        content: "Latitude:";
+    }
+
+    .tabela-container tbody td:nth-child(4)::before {
+        content: "Longitude:";
+    }
+
+    .tabela-container tbody td:nth-child(5)::before {
+        content: "Ações:";
+    }
+
+    .tabela-container tbody td:last-child {
+        border-bottom: none;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    /* Ações no celular */
+
+    .acoes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 6px;
+    }
+
+    .botao-acao {
+        padding: 8px 10px;
+        font-size: 12px;
     }
 
     th,
@@ -285,13 +457,36 @@ td a {
     }
 
     .titulo-listagem {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .titulo-listagem .botao {
-    text-align: center;
-    align-self: flex-start;
+        text-align: center;
+        align-self: flex-start;
     }
+
+    /* Detalhes no celular */
+
+    .cabecalho-detalhes {
+        gap: 10px;
+    }
+
+    .cabecalho-detalhes h2 {
+        font-size: 19px;
+    }
+
+    .botao-voltar {
+        padding: 10px 14px;
+    }
+
+    .info-item {
+        padding: 14px;
+    }
+
+    .acoes-detalhes .botao, .acoes-detalhes .botao-acao {
+    width: 100%;
+    text-align: center;
+}
 }
