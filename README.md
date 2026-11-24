@@ -35,20 +35,49 @@ A API é utilizada para cadastrar, listar, consultar, atualizar e excluir os pon
 
 ### Computador
 
+## Telas do projeto
+
+### Computador
+
+**Listagem de pontos**
+
 ![Listagem](prints/listagem.png)
+
+**Filtro de pontos**
+
 ![Filtro](prints/filtro.png)
 
+**Cadastro de ponto**
+
 ![Cadastro](prints/cadastro.png)
+
+**Detalhes do ponto**
+
 ![Detalhe](prints/detalhe.png)
+
+**Edição de ponto**
 
 ![Edição](prints/edicao.png)
 
+
 ### Mobile
 
-![Listagem mobile](prints/listagem-mobile.png)
-![Filtro mobile](prints/filtro-mobile.png)
+**Listagem de pontos**
 
-![Cadastro mobile](prints/cadastro-mobile.png)
-![Detalhe mobile](prints/detalhe-mobile.png)
+<img src="prints/listagem-mobile.png" width="250">
 
-![Edição mobile](prints/edicao-mobile%20.png)
+**Filtro de pontos**
+
+<img src="prints/filtro-mobile.png" width="250">
+
+**Cadastro de ponto**
+
+<img src="prints/cadastro-mobile.png" width="250">
+
+**Detalhes do ponto**
+
+<img src="prints/detalhe-mobile.png" width="250">
+
+**Edição de ponto**
+
+<img src="prints/edicao-mobile .png" width="250">
