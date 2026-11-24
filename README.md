@@ -36,33 +36,34 @@ A API é utilizada para cadastrar, listar, consultar, atualizar e excluir os pon
 ### Listagem
 
 <div align="center">
-  <img src="prints/listagem.png" width="400">
-  <img src="prints/listagem-mobile.png" width="400">
+  <img src="prints/listagem.png" width="500">
+  <img src="prints/listagem-mobile.png" width="300">
 </div>
 
 ### Filtro
 
 <div align="center">
-  <img src="prints/filtro.png" width="400">
-  <img src="prints/filtro-mobile.png" width="400">
+  <img src="prints/filtro.png" width="500">
+  <img src="prints/filtro-mobile.png" width="300">
 </div>
 
 ### Cadastro
 
 <div align="center">
-  <img src="prints/cadastro.png" width="400">
-  <img src="prints/cadastro-mobile.png" width="400">
+  <img src="prints/cadastro.png" width="500">
+  <img src="prints/cadastro-mobile.png" width="300">
 </div>
 
 ### Detalhe
 
 <div align="center">
-  <img src="prints/detalhe.png" width="400">
-  <img src="prints/detalhe-mobile.png" width="400">
+  <img src="prints/detalhe.png" width="500">
+  <img src="prints/detalhe-mobile.png" width="300">
 </div>
 
 ### Edição
 
 <div align="center">
-  <img src="prints/edicao.png" width="400">
-  <img src="prints/edicao-mobile.png" width="400">
+  <img src="prints/edicao.png" width="500">
+  <img src="prints/edicao-mobile.png" width="300">
+</div>
