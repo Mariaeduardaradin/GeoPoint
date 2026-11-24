@@ -33,37 +33,22 @@ A API é utilizada para cadastrar, listar, consultar, atualizar e excluir os pon
 
 ## Capturas de tela
 
-### Listagem
+### Computador
 
-<div align="center">
-  <img src="prints/listagem.png" width="500">
-  <img src="prints/listagem-mobile.png" width="300">
-</div>
+![Listagem](prints/listagem.png)
+![Filtro](prints/filtro.png)
 
-### Filtro
+![Cadastro](prints/cadastro.png)
+![Detalhe](prints/detalhe.png)
 
-<div align="center">
-  <img src="prints/filtro.png" width="500">
-  <img src="prints/filtro-mobile.png" width="300">
-</div>
+![Edição](prints/edicao.png)
 
-### Cadastro
+### Mobile
 
-<div align="center">
-  <img src="prints/cadastro.png" width="500">
-  <img src="prints/cadastro-mobile.png" width="300">
-</div>
+![Listagem mobile](prints/listagem-mobile.png)
+![Filtro mobile](prints/filtro-mobile.png)
 
-### Detalhe
+![Cadastro mobile](prints/cadastro-mobile.png)
+![Detalhe mobile](prints/detalhe-mobile.png)
 
-<div align="center">
-  <img src="prints/detalhe.png" width="500">
-  <img src="prints/detalhe-mobile.png" width="300">
-</div>
-
-### Edição
-
-<div align="center">
-  <img src="prints/edicao.png" width="500">
-  <img src="prints/edicao-mobile.png" width="300">
-</div>
+![Edição mobile](prints/edicao-mobile%20.png)
